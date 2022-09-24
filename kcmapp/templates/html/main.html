@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <link rel = "stylesheet" href = "main.css">
@@ -6,11 +7,11 @@
             <div class = "header">
                 <h1>😀꿀조합 레시피</h1>
                 <ul>
-                    <li>Food</li> //전체 목록
-                    <li>Fruit</li> //글 중 과일?에 대한 목록
-                    <li>Drink</li> //글 전체 중 음료수에 대한 목록
-                    <li>Write</li> //글 작성 페이지
-                    <li>Login></li> //로그인 페이지
+                    <li>Food</li> <!--전체 목록-->
+                    <li>Fruit</li> <!--글 중 과일?에 대한 목록-->
+                    <li>Drink</li> <!--글 전체 중 음료수에 대한 목록-->
+                    <li>Write</li> <!--글 작성 페이지-->
+                    <li>Login></li> <!--로그인 페이지-->
                 </ul>
             </div>
             <div class = "main">
@@ -27,15 +28,13 @@
                     </div>    
                 </div>
                 
-                <div class = "side_content">
-                    <a href = "{% url 'read' %}">글 목록 </a>
-                    <a href = "{% url 'write' %}">글 작성하기</a> //글 작성 페이지
+                <div class="side_content">
+                    <a href="{% url 'read' %}">글 목록 </a>
+                    <a href="{% url 'write' %}">글 작성하기</a> <!--글 작성 페이지-->
+                    <a href= "#github_link">푸터</a>
                 </div>
 
-                {% for temp in cashbook %}
-                <a href = "{% url 'datail' temp.id %}">
-                    <p>{{temp.id}} : {{temp.title}}</p>
-                </a>   
+                
             </div>
 
             <div class = "footer">
