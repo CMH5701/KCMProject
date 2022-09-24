@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <link rel = "stylesheet" href = "main.css">
+    </head>
+        <body>
+            <div class = "header">
+                <h1>😀꿀조합 레시피</h1>
+                <ul>
+                    <li>Food</li> //전체 목록
+                    <li>Fruit</li> //글 중 과일?에 대한 목록
+                    <li>Drink</li> //글 전체 중 음료수에 대한 목록
+                    <li>Write</li> //글 작성 페이지
+                    <li>Login></li> //로그인 페이지
+                </ul>
+            </div>
+            <div class = "main">
+                <div class = "main_content">
+                    <img src = "main_1.jpg" id = "IMGG">
+                    <div style = "display:flex;justify-content:center;margin-top:1.5%;"> 
+                    <label for = "prev">    
+                    <span id = "prev" onclick = "previous()">◀
+                    </span>
+                   </label>
+                    <label for = "next">
+                    <span id = "next" onclick = "nextfield()">▶</span>
+                    </label>
+                    </div>    
+                </div>
+                
+                <div class = "side_content">
+                    <a href = "{% url 'read' %}">글 목록 </a>
+                    <a href = "{% url 'write' %}">글 작성하기</a> //글 작성 페이지
+                </div>
+
+                {% for temp in cashbook %}
+                <a href = "{% url 'datail' temp.id %}">
+                    <p>{{temp.id}} : {{temp.title}}</p>
+                </a>   
+            </div>
+
+            <div class = "footer">
+                <div class = "footer-content"> 
+                <a href = "https://github.com/khj0426/KCMProject" target = "_blank" id = "github_link">
+                <img src = "github.png" style="margin-right:5px;">    
+                </a>
+                  멋쟁이사자처럼 10기 최명환 & 김효중
+            </div>
+
+        </body>
+        
+        <script>
+            let array = new Array();
+            for(let i = 1;i<=3;i++){
+                array[i] = new Image();
+                array[i].src = "main_" + i + ".jpg";
+                
+            }
+            
+            var first = 0;
+            function previous(){
+                if(first == 1){
+                    first = 3;
+                }
+                else{
+                    first--;
+                }
+                document.getElementById("IMGG").src = array[first].src;
+            }
+            function nextfield(){
+                if(first == 3){
+                    first = 1;
+                }
+                else{
+                    first++;
+                }
+                document.getElementById("IMGG").src = array[first].src;
+            }
+            setInterval(nextfield,5000);
+
+
+
+        </script>
+</html>

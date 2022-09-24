@@ -7,7 +7,8 @@ from .models import Cashbook
 # Create your views here.
 
 def main(request):
-    return render(request , 'main.html')
+    cashbook = Cashbook.objects.all()
+    return render(request , 'main.html',{'cashbook':cashbook})
 
 def write(request) :
     if request.method == 'POST':
