@@ -1,1 +1,82 @@
-<h1>효중아 메인이야 이게~</h2>
+{% load static %}
+<html>
+    <head>
+        <link rel = "stylesheet" href = "{% static 'css/main.css' %}">
+        <script>
+            let array = new Array();
+            for(let i = 1;i<=3;i++){
+                array[i] = new Image();
+                array[i].src = "/static/img/main_" + String(i) + ".jpg";
+            }
+<img src="/static/img/main_1.jpg" id="IMGG">
+            var first = 0;
+            function previous(){
+                if(first == 1){
+                    first = 3;
+                }
+                else{
+                    first--;
+                }
+                document.getElementById("IMGG").src = array[first].src;
+            }
+            function NextField(){
+                if(first == 3){
+                    first = 1;
+                }
+                else{
+                    first++;
+                }
+                console.log('h1');
+                document.getElementById("IMGG").src = array[first].src;
+            }
+            setInterval(NextField(),5000);
+
+        </script>
+    </head>
+        <body>
+            <div class = "header">
+                <h1>😀꿀조합 레시피</h1>
+                <ul>
+                    <li>Food</li> <!--전체 목록-->
+                    <li>Fruit</li> <!--글 중 과일?에 대한 목록-->
+                    <li>Drink</li> <!--글 전체 중 음료수에 대한 목록-->
+                    <li>Write</li> <!--글 작성 페이지-->
+                    <li>Login></li> <!--로그인 페이지-->
+                </ul>
+            </div>
+            <div class = "main">
+                <div class = "main_content">
+                    <img src = "{% static 'img/main_1.jpg' %}" id = "IMGG">
+                    <div style = "display:flex;justify-content:center;margin-top:1.5%;"> 
+                    <label for = "prev">    
+                    <button id = "prev" onclick = "previous()">◀
+                    </button>
+                   </label>
+                    <label for = "next">
+                    <button id = "next" onclick = "NextField()">▶</button>
+                    </label>
+                    </div>    
+                </div>
+                
+                <div class="side_content">
+                    <a href="{% url 'read' %}">글 목록 </a>
+                    <a href="{% url 'write' %}">글 작성하기</a> <!--글 작성 페이지-->
+                    <a href= "#github_link">푸터</a>
+                </div>
+
+                
+            </div>
+
+            <div class = "footer">
+                <div class = "footer-content"> 
+                <a href = "https://github.com/khj0426/KCMProject" target = "_blank" id = "github_link">
+                <img src = "{% static 'img/github.png' %}" style="margin-right:5px;">
+                </a>
+                  멋쟁이사자처럼 10기 최명환 & 김효중
+            </div>
+            </div>
+
+        </body>
+        
+
+</html>
