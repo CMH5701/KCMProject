@@ -1,7 +1,37 @@
-
+{% load static %}
 <html>
     <head>
-        <link rel = "stylesheet" href = "main.css">
+        <link rel = "stylesheet" href = "{% static 'css/main.css' %}">
+        <script>
+            let array = new Array();
+            for(let i = 1;i<=3;i++){
+                array[i] = new Image();
+                array[i].src = "/static/img/main_" + String(i) + ".jpg";
+            }
+<img src="/static/img/main_1.jpg" id="IMGG">
+            var first = 0;
+            function previous(){
+                if(first == 1){
+                    first = 3;
+                }
+                else{
+                    first--;
+                }
+                document.getElementById("IMGG").src = array[first].src;
+            }
+            function NextField(){
+                if(first == 3){
+                    first = 1;
+                }
+                else{
+                    first++;
+                }
+                console.log('h1');
+                document.getElementById("IMGG").src = array[first].src;
+            }
+            setInterval(NextField(),5000);
+
+        </script>
     </head>
         <body>
             <div class = "header">
@@ -16,14 +46,14 @@
             </div>
             <div class = "main">
                 <div class = "main_content">
-                    <img src = "main_1.jpg" id = "IMGG">
+                    <img src = "{% static 'img/main_1.jpg' %}" id = "IMGG">
                     <div style = "display:flex;justify-content:center;margin-top:1.5%;"> 
                     <label for = "prev">    
-                    <span id = "prev" onclick = "previous()">◀
-                    </span>
+                    <button id = "prev" onclick = "previous()">◀
+                    </button>
                    </label>
                     <label for = "next">
-                    <span id = "next" onclick = "nextfield()">▶</span>
+                    <button id = "next" onclick = "NextField()">▶</button>
                     </label>
                     </div>    
                 </div>
@@ -40,43 +70,13 @@
             <div class = "footer">
                 <div class = "footer-content"> 
                 <a href = "https://github.com/khj0426/KCMProject" target = "_blank" id = "github_link">
-                <img src = "github.png" style="margin-right:5px;">    
+                <img src = "{% static 'img/github.png' %}" style="margin-right:5px;">
                 </a>
                   멋쟁이사자처럼 10기 최명환 & 김효중
+            </div>
             </div>
 
         </body>
         
-        <script>
-            let array = new Array();
-            for(let i = 1;i<=3;i++){
-                array[i] = new Image();
-                array[i].src = "main_" + i + ".jpg";
-                
-            }
-            
-            var first = 0;
-            function previous(){
-                if(first == 1){
-                    first = 3;
-                }
-                else{
-                    first--;
-                }
-                document.getElementById("IMGG").src = array[first].src;
-            }
-            function nextfield(){
-                if(first == 3){
-                    first = 1;
-                }
-                else{
-                    first++;
-                }
-                document.getElementById("IMGG").src = array[first].src;
-            }
-            setInterval(nextfield,5000);
 
-
-
-        </script>
 </html>
