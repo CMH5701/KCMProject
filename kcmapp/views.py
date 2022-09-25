@@ -11,6 +11,7 @@ def main(request):
     return render(request , 'main.html',{'cashbook':cashbook})
 
 def write(request) :
+    context = {}
     if request.method == 'POST':
         form = CashbookForm(request.POST)
         if form.is_valid():
@@ -21,7 +22,8 @@ def write(request) :
 
     else:
         form = CashbookForm
-        return render(request, 'write.html', {'form':form})
+    context['form'] = form
+    return render(request, 'write.html', {'form':form})
 
 def read(request) :
     cashbooks = Cashbook.objects.all()
