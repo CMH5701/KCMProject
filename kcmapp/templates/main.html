@@ -2,36 +2,7 @@
 <html>
     <head>
         <link rel = "stylesheet" href = "{% static 'css/main.css' %}">
-        <script>
-            let array = new Array();
-            for(let i = 1;i<=3;i++){
-                array[i] = new Image();
-                array[i].src = "/static/img/main_" + String(i) + ".jpg";
-            }
-<img src="/static/img/main_1.jpg" id="IMGG">
-            var first = 0;
-            function previous(){
-                if(first == 1){
-                    first = 3;
-                }
-                else{
-                    first--;
-                }
-                document.getElementById("IMGG").src = array[first].src;
-            }
-            function NextField(){
-                if(first == 3){
-                    first = 1;
-                }
-                else{
-                    first++;
-                }
-                console.log('h1');
-                document.getElementById("IMGG").src = array[first].src;
-            }
-            setInterval(NextField(),5000);
 
-        </script>
     </head>
         <body>
             <div class = "header">
@@ -75,7 +46,12 @@
                   멋쟁이사자처럼 10기 최명환 & 김효중
             </div>
             </div>
+        <script>
+            window.onload = function(){
 
+            }
+
+        </script>
         </body>
         
 
