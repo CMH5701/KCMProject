@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import kcmapp.views
+from kcmproject.settings import MEDIA_ROOT
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +26,6 @@ urlpatterns = [
     path('write/', kcmapp.views.write , name = 'write'),
     path('read/', kcmapp.views.read , name = 'read'),
     path('detail/<str:id>', kcmapp.views.detail , name = 'detail'),
-    ]
+    path('edit/<str:id>', kcmapp.views.edit , name = 'edit'),
+    path('delete/<str:id>', kcmapp.views.delete , name = 'delete'),
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

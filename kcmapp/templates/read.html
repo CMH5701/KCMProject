@@ -12,8 +12,12 @@
         {% for cashbooks in cashbooks.all %}
        
         <h3>제목: <a href = "{% url 'detail' cashbooks.id %}"> {{cashbooks.title}}</a></h3>
-            작성일: {{cashbooks.pub_date}}
-            작성자: {{cashbooks.name}}
+        
+        작성일: {{cashbooks.pub_date}}<br>
+        작성내용: {{cashbooks.content}}<br>
+        {% if cashbooks.image %}
+        <image src = "{{cashbooks.image.url}}" width = "250" height = "250" alt = image>  
+        {% endif %} 
         {% endfor %}
 
     </form>
