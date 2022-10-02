@@ -18,8 +18,8 @@ div{
         {% csrf_token %}
         <table>
             {{form.as_table}}
-            {% if cashbooks.image %}
-            <div><image src = "{{cashbooks.image.url}}" width = "250" height = "250" alt = "이미지" >  </div>
+            {% if cashbook.image %}
+            <div><image src = "{{cashbook.image.url}}" width = "250" height = "250" alt = "이미지" >  </div>
             {% endif %}
         </table>
         <button type="subimit">작성</button>

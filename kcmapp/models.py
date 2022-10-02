@@ -17,3 +17,5 @@ class Cashbook(models.Model):
         if title == "":
             raise ValidationError("글을 작성해주세요.")
         return super(Cashbook, self).clean()
+    
+
