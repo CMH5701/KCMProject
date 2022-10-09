@@ -1,7 +1,9 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.conf import settings
 # Create your models here.
 class Cashbook(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField('data published')
     content = models.TextField()

@@ -15,8 +15,12 @@
          <image src = "{{cashbooks.image.url}}" width = "250" height = "250"
          alt = image>  <br>
          {% endif %}              
-        <a href = "{% url 'edit' cashbooks.id %}">수정하기 </a>
-        <a href = "{% url 'delete' cashbooks.id %}">삭제하기 </a>
+       
     </form>
+    {% if cashbooks.user == user %}
+    <a href="{% url 'edit' cashbooks.id %}" class="btn btn-info">Update</a>
+    <a href="{% url 'delete' cashbooks.id %}" class="btn btn-primary">Delete</a>
+    {% endif %}
+    <span> <a href="{% url 'people' cashbooks.user.username %}">{{ cashbooks.user.username }} </a></span>
 </body>
 </html>
