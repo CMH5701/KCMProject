@@ -75,16 +75,14 @@ def password(request):
         password_change_form = PasswordChangeForm(request.user)
     return render(request, 'password_edit.html',{'password_change_form':password_change_form}) 
 
-def profile_update(request):
+def profile_edit(request):
     profile  =request.user.profile
     if request.method == 'POST':
         profile_form = ProfileForm(request.POST, request.FILES, instance = profile)
         if profile_form.is_valid():
             profile_form.save()
-        return redirect('account:people' , request.user.username)
+        return redirect('people' , request.user.username)
     else:
             profile_form = ProfileForm(instance = profile)
-    return render(request, 'profle_update.html' , {
-        						'profile_form':profile_form
-    							})
+    return render(request, 'profile_edit.html' , {'profile_form':profile_form})
         

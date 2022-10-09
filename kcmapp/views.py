@@ -15,7 +15,7 @@ def main(request):
 @login_required
 def write(request) :
     if not request.user.is_authenticated:
-        return render('read.html')
+        return redirect('main')
     context = {}
     if request.method == 'POST':
         form = CashbookForm(request.POST, request.FILES)

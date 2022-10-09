@@ -19,6 +19,7 @@
                 </ul>
 {% if user.is_authenticated %}
 <h3> {{ user.username }}님 환영합니다.</h3>
+<a href="{% url 'write' %}">글 쓰기</a>
 <a href="{% url 'logout' %}">로그아웃</a>
 <span> <a href="{% url 'people' user.username %}">{{user.username }}의 페이지</a></span>
 {% else %}
@@ -64,7 +65,7 @@
 
          <div class="side_content">
                     <a href="{% url 'read' %}">글 목록 </a>
-                    <a href="{% url 'write' %}">글 작성하기</a> <!--글 작성 페이지-->
+                    <!--<a href="{% url 'write' %}">글 작성하기</a>글 작성 페이지 로그인 상태에서만 가능 표시해도 상관은 x-->
                     <a href= "#github_link">푸터</a>
                 </div>
 
